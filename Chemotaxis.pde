@@ -47,7 +47,7 @@
  	}
  	void show()
  	{	
- 		if(myX>250&&myY<250)
+ 		if(myX>250&&myY<=250)
  		{
  			fill(0,myColor,0);
 		} 
@@ -55,7 +55,7 @@
 		{
 			fill(myColor,myColor,0);
 		}
-		else if(myX<250&&myY>250)
+		else if(myX<=250&&myY>250)
 		{
 			fill(0,0,myColor);
 		}
@@ -64,7 +64,7 @@
  			fill(myColor,0,0);
 		}
  		
- 		ellipse(myX,myY,10,10);
+ 		ellipse(myX,myY,15,15);
 
  		//ellipse(location.x,location.y,10,10);
 
