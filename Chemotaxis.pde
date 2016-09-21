@@ -22,13 +22,13 @@
 	if(mousePressed==true){
     		harambe[i].left=3;
     		harambe[i].right=6;
-    		harambe[i].alb+=0.1;
+    		harambe[i].alb+=0.2;
     	}
     	else{
     		harambe[i].left=6;
     		harambe[i].right=3;
     		if(harambe[i].alb>0){
-    			harambe[i].alb-=0.1;
+    			harambe[i].alb-=0.2;
     		}
     		else
     		{
@@ -103,22 +103,19 @@
     	location.add(velocity);
     	*/
     	
-    	float weeda=(int)(Math.random()*9)-alb;
-    	float weedb=(int)(Math.random()*9)+alb;
-    	float weedc=(int)(Math.random()*9)-alb;
-    	float weedd=(int)(Math.random()*9)+alb;
+    	
 
     	if(myY<mouseY){
-    		myY+=weeda-right;
+    		myY+=((int)(Math.random()*9)-alb)-right;
     	}
     	else{
-    		myY+=weedb-left;
+    		myY+=((int)(Math.random()*9)+alb)-left;
     	}
     	if(myX<mouseX){
-    		myX+=weedc-right;
+    		myX+=((int)(Math.random()*9)-alb)-right;
     	}
     	else{
-    		myX+=weedd-left;
+    		myX+=((int)(Math.random()*9)+alb)-left;
     	}
     	
     	
