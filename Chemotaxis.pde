@@ -19,14 +19,34 @@
  	{
 	harambe[i].move();
 	harambe[i].show();
-	
+	if(mousePressed==true){
+    		harambe[i].left=3;
+    		harambe[i].right=6;
+    		harambe[i].alb+=0.1;
+    	}
+    	else{
+    		harambe[i].left=6;
+    		harambe[i].right=3;
+    		if(harambe[i].alb>0){
+    			harambe[i].alb-=0.1;
+    		}
+    		else
+    		{
+    			harambe[i].alb=0;
+    		}
+    	}
 	}
+
+	
 
  }  
  class Bacteria    
  {     
  	//lots of java!   
- 	int myX,myY, myColor;
+ 	float myX,myY, myColor;
+ 	float right;
+    float left;
+    float alb;
  	/*
  	PVector location;
   	PVector velocity;
@@ -43,11 +63,14 @@
  		myColor=(int)(Math.random()*255);
  		myX=width/2;
  		myY=height/2;
+ 		right=3;
+ 		left=6;
+ 		alb=0;
  		
  	}
  	void show()
  	{	
- 		if(myX>250&&myY<250)
+ 		if(myX>250&&myY<=250)
  		{
  			fill(0,myColor,0);
 		} 
@@ -55,19 +78,15 @@
 		{
 			fill(myColor,myColor,0);
 		}
-		else if(myX<250&&myY>250)
+		else if(myX<=250&&myY>250)
 		{
 			fill(0,0,myColor);
 		}
- 		else if(myX<250 && myY<250)
+ 		else 
  		{
  			fill(myColor,0,0);
 		}
-		 else 
-		{
-			fill(myColor);
-		}
- 		
+		
  		ellipse(myX,myY,15,15);
 
  		//ellipse(location.x,location.y,10,10);
@@ -83,21 +102,44 @@
     	velocity.limit(topspeed);
     	location.add(velocity);
     	*/
+    	
+    	float weeda=(int)(Math.random()*9)-alb;
+    	float weedb=(int)(Math.random()*9)+alb;
+    	float weedc=(int)(Math.random()*9)-alb;
+    	float weedd=(int)(Math.random()*9)+alb;
+
     	if(myY<mouseY){
-    		myY+=(int)(Math.random()*9)-3;
+    		myY+=weeda-right;
     	}
     	else{
-    		myY+=(int)(Math.random()*9)-6;
+    		myY+=weedb-left;
     	}
     	if(myX<mouseX){
-    		myX+=(int)(Math.random()*9)-3;
+    		myX+=weedc-right;
     	}
     	else{
-    		myX+=(int)(Math.random()*9)-6;
+    		myX+=weedd-left;
     	}
+    	
     	
 
  	}
  	
- }    
+ } 
+
+ class Apple{
+ 	int aX,aY;
+ 	Apple(int x, int y)
+ 	{
+ 		aX=x;
+ 		aY=y;
+ 	}
+ 	void show()
+ 	{
+ 		ellipse(aX,aY,20,20);
+ 	}
+ }
+
+
+
  
