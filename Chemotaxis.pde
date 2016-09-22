@@ -14,25 +14,55 @@
  void draw()   
  {    
  	//move and show the bacteria 
- 	background(255);  
+ 	background(255);
+ 	noFill();
+ 	if(mousePressed==false){
+ 		stroke(0);
+ 		rect(mouseX-50,mouseY-50,100,100); 
+ 	} else{
+ 		stroke(255,0,0);
+ 		line(mouseX-25,mouseY-25,mouseX+25,mouseY+25);
+ 		line(mouseX+25,mouseY-25,mouseX-25,mouseY+25);
+ 		rect(mouseX-50,mouseY-50,100,100);
+	}
+ 	
+
+	//array 
  	for(int i = 0; i<harambe.length;i++)
  	{
 	harambe[i].move();
 	harambe[i].show();
-	if(mousePressed==true){
+	//acceleration
+	if(mousePressed==true)
+		{
     		harambe[i].left=3;
     		harambe[i].right=6;
-    		harambe[i].alb+=0.2;
+    		if(harambe[i].alb<0){
+    			harambe[i].alb=0;
+    		} 
+    		else
+    		{
+    			harambe[i].alb+=0.2;
+    		}
+    		
     	}
     	else{
     		harambe[i].left=6;
     		harambe[i].right=3;
-    		if(harambe[i].alb>0){
-    			harambe[i].alb-=0.2;
+    		if(harambe[i].myX>mouseX-50 && harambe[i].myX<mouseX+50 )
+    		{
+    			if(harambe[i].myY>mouseY-50 && harambe[i].myY<mouseY+50 )
+    			{
+    				harambe[i].alb=0;
+    			} 
+    			else 
+    			{
+    				harambe[i].alb-=0.2;
+    			}
     		}
     		else
     		{
-    			harambe[i].alb=0;
+    			harambe[i].alb-=0.2;
     		}
     	}
 	}
