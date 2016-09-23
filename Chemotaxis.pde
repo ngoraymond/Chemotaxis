@@ -4,7 +4,7 @@
  void setup()   
  {     
  	//initialize bacteria variables here   
- 	size(1600,900);
+ 	size(1280,720);
  	harambe = new Bacteria[1000];
  	for(int i = 0;i<harambe.length;i++)
  	{
