@@ -4,7 +4,7 @@
  void setup()   
  {     
  	//initialize bacteria variables here   
- 	size(500,500);
+ 	size(1920,1080);
  	harambe = new Bacteria[1000];
  	for(int i = 0;i<harambe.length;i++)
  	{
@@ -100,15 +100,15 @@
  	}
  	void show()
  	{	
- 		if(myX>250&&myY<=250)
+ 		if(myX>width/2&&myY<=height/2)
  		{
  			fill(0,myColor,0);
 		} 
-		else if(myX>250&&myY>250)
+		else if(myX>width/2&&myY>height/2)
 		{
 			fill(myColor,myColor,0);
 		}
-		else if(myX<=250&&myY>250)
+		else if(myX<=width/2&&myY>height/2)
 		{
 			fill(0,0,myColor);
 		}
